@@ -1,24 +1,27 @@
 <template>
-  <h1>Megacool project</h1>
+    <div class="app">
+        <app-login></app-login>
+        <app-register></app-register>
+    </div>
 </template>
 
 <script>
 
-export default {
-  name: 'App',
-  components: {
+import Authorize from "@/Authorization/Authorize";
+import Register from "@/Authorization/Register";
 
-  }
+export default {
+    name: "App",
+    components: {
+        appLogin: Authorize,
+        appRegister: Register
+    }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+    * {
+        margin: 0;
+        border: 0;
+    }
 </style>
