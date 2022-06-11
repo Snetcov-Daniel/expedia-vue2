@@ -1,18 +1,21 @@
 <template>
     <div class="app">
-        <app-login></app-login>
-        <app-register></app-register>
+        <app-footer/>
+        <app-login/>
+        <app-register/>
     </div>
 </template>
 
 <script>
 
-import Authorize from "@/Authorization/Authorize";
-import Register from "@/Authorization/Register";
+import Footer from "./components/Footer/Footer";
+import Authorize from "./components/Authorization/Authorize";
+import Register from "./components/Authorization/Register";
 
 export default {
     name: "App",
     components: {
+        appFooter: Footer,
         appLogin: Authorize,
         appRegister: Register
     }
@@ -23,5 +26,8 @@ export default {
     * {
         margin: 0;
         border: 0;
+    }
+    .popup {
+        display: none;
     }
 </style>
