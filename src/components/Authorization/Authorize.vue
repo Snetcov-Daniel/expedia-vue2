@@ -1,7 +1,7 @@
 <template>
     <div class="popup">
         <div class="authorization">
-            <button class="authorization__close"><img src="../assets/close-button.png" alt="Close" class="authorization__close-image"></button>
+            <button class="authorization__close"><img src="@/img/close-button.png" alt="Close" class="authorization__close-image"></button>
             <h1 class="authorization__title">Authorization</h1>
             <form class="authorization__form">
                 <input v-model="login" type="text" class="authorization__input" placeholder="Login" spellcheck="false" required>
@@ -123,7 +123,7 @@ export default {
     .authorization__image {
         width: 100%;
         height: 100%;
-        background: linear-gradient(180deg, rgba(34, 40, 49, 0) 0%, #222831 55%), url("../assets/background.png");
+        background: linear-gradient(180deg, rgba(34, 40, 49, 0) 0%, #222831 55%), url("@/img/background.png");
         background-color: #222831;
         background-size: 100%;
         background-repeat: no-repeat;
