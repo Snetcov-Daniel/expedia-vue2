@@ -1,5 +1,6 @@
 <template>
     <div class="app">
+        <header-main></header-main>
         <app-footer/>
         <app-login/>
         <app-register/>
@@ -11,13 +12,15 @@
 import Footer from "./components/Footer/Footer";
 import Authorize from "./components/Authorization/Authorize";
 import Register from "./components/Authorization/Register";
+import headerMain from "@/Header/HeaderMain";
 
 export default {
     name: "App",
     components: {
         appFooter: Footer,
         appLogin: Authorize,
-        appRegister: Register
+        appRegister: Register,
+      headerMain: headerMain
     }
 }
 </script>
