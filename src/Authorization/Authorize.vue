@@ -34,6 +34,7 @@ export default {
 
 <style>
     .popup {
+        position: absolute;
         display: flex;
         justify-content: center;
         height: 100vh;

@@ -45,4 +45,5 @@ export default {
     .authorization__switch-log {
         margin-top: 560px;
     }
+
 </style>
