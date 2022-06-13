@@ -1,5 +1,6 @@
 <template>
     <div class="app">
+        <appPageMain />
         <app-footer/>
         <app-login/>
         <app-register/>
@@ -11,13 +12,16 @@
 import Footer from "./components/Footer/Footer";
 import Authorize from "./components/Authorization/Authorize";
 import Register from "./components/Authorization/Register";
+import PageMain from "./components/Main/Main.vue"
 
 export default {
     name: "App",
     components: {
         appFooter: Footer,
         appLogin: Authorize,
-        appRegister: Register
+        appRegister: Register,
+        appPageMain: PageMain,
+        
     }
 }
 </script>
@@ -27,6 +31,11 @@ export default {
         margin: 0;
         border: 0;
     }
+
+    .app {
+        background-color: #222831;
+    }
+
     .popup {
         display: none;
     }
