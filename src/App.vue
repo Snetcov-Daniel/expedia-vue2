@@ -1,5 +1,6 @@
 <template>
     <div class="app">
+        <headerMain />
         <appPageMain />
         <app-footer/>
         <app-login/>
@@ -13,6 +14,8 @@ import Footer from "./components/Footer/Footer";
 import Authorize from "./components/Authorization/Authorize";
 import Register from "./components/Authorization/Register";
 import PageMain from "./components/Main/Main.vue"
+import headerMain from "@/Header/HeaderMain";
+
 
 export default {
     name: "App",
@@ -21,7 +24,7 @@ export default {
         appLogin: Authorize,
         appRegister: Register,
         appPageMain: PageMain,
-        
+      headerMain: headerMain
     }
 }
 </script>
