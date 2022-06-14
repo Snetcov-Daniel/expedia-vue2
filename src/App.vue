@@ -1,6 +1,7 @@
 <template>
     <div class="app">
         <headerMain />
+        <app-travel/>
         <appPageMain />
         <app-footer/>
         <app-login/>
@@ -13,12 +14,15 @@
 import Footer from "./components/Footer/Footer";
 import Authorize from "./components/Authorization/Authorize";
 import Register from "./components/Authorization/Register";
-import PageMain from "./components/Main/Main.vue"
-import headerMain from "@/components/Header/HeaderMain.vue";
+import PageMain from "./components/Main/Main.vue";
+import headerMain from "@/Header/HeaderMain";
+import Travel from "./components/Travel/Travel.vue";
+
 
 export default {
     name: "App",
     components: {
+        appTravel: Travel,
         appFooter: Footer,
         appLogin: Authorize,
         appRegister: Register,
@@ -30,9 +34,12 @@ export default {
 </script>
 
 <style>
+
     * {
+        font-family: Montserrat, sans-serif;
         margin: 0;
         border: 0;
+        box-sizing: border-box;
     }
 
     .app {
