@@ -1,7 +1,7 @@
 <template>
   <div class = "header-navbar">
 
-    <img src="../img/Expedia-logo.png" alt="Logo">
+    <img src="../../img/Expedia-logo.png" alt="Logo">
 
     <div class="h__menu">
       <a href="#" id = "hm__home">Home</a>

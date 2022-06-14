@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import headerNavbar from "@/Header/HeaderNavbar";
-import headerOffer from "@/Header/HeaderOffer";
+import headerNavbar from "./HeaderNavbar.vue";
+import headerOffer from "./HeaderOffer.vue";
 
 export default {
 
@@ -23,7 +23,7 @@ export default {
 
 <style scoped>
 .header-main{
-  background-image: url("../img/header-bg.png");
+  background-image: url("../../img/header-bg.png");
   background-size: 100% 100%;
   width: 100%;
   height: 565px;

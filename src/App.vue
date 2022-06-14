@@ -28,7 +28,8 @@ export default {
         appRegister: Register,
         appPageMain: PageMain,
       headerMain: headerMain
-    }
+    },
+    mounted() { }
 }
 </script>
 
