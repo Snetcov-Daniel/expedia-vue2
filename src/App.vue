@@ -14,8 +14,7 @@ import Footer from "./components/Footer/Footer";
 import Authorize from "./components/Authorization/Authorize";
 import Register from "./components/Authorization/Register";
 import PageMain from "./components/Main/Main.vue"
-import headerMain from "@/Header/HeaderMain";
-
+import headerMain from "@/components/Header/HeaderMain.vue";
 
 export default {
     name: "App",
@@ -25,7 +24,8 @@ export default {
         appRegister: Register,
         appPageMain: PageMain,
       headerMain: headerMain
-    }
+    },
+    mounted() { }
 }
 </script>
 
