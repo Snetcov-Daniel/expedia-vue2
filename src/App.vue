@@ -1,7 +1,8 @@
 <template>
     <div class="app">
-        <header-main></header-main>
+        <headerMain />
         <app-travel/>
+        <appPageMain />
         <app-footer/>
         <app-login/>
         <app-register/>
@@ -13,8 +14,10 @@
 import Footer from "./components/Footer/Footer";
 import Authorize from "./components/Authorization/Authorize";
 import Register from "./components/Authorization/Register";
+import PageMain from "./components/Main/Main.vue";
 import headerMain from "@/Header/HeaderMain";
 import Travel from "./components/Travel/Travel.vue";
+
 
 export default {
     name: "App",
@@ -23,6 +26,7 @@ export default {
         appFooter: Footer,
         appLogin: Authorize,
         appRegister: Register,
+        appPageMain: PageMain,
       headerMain: headerMain
     }
 }
@@ -36,6 +40,11 @@ export default {
         border: 0;
         box-sizing: border-box;
     }
+
+    .app {
+        background-color: #222831;
+    }
+
     .popup {
         display: none;
     }

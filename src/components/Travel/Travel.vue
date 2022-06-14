@@ -65,7 +65,7 @@ export default {
 
     .travel {
         width: 1240px;
-        margin: 0 auto;
+        margin: -50px auto 0;
         padding: 24px 44px;
         border-radius: 30px;
         background-color: #fff;
