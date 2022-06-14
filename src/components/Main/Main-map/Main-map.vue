@@ -18,9 +18,9 @@ export default {
 
     // eslint-disable-next-line no-undef
     new mapboxgl.Map({
-        container: 'map', 
-        style: 'mapbox://styles/mapbox/streets-v9', 
-        center: [ 28.85, 47.0], 
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        center: [ 28.85, 47.0],
         zoom: 12,
     });
   },
@@ -33,5 +33,6 @@ export default {
   top: 0;
   width: 71.8em;
   height: 500px;
+  border-radius: 0 0 20px 20px;
 }
 </style>
