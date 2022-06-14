@@ -15,7 +15,7 @@ import Footer from "./components/Footer/Footer";
 import Authorize from "./components/Authorization/Authorize";
 import Register from "./components/Authorization/Register";
 import PageMain from "./components/Main/Main.vue";
-import headerMain from "@/Header/HeaderMain";
+import headerMain from "./components/Header/HeaderMain";
 import Travel from "./components/Travel/Travel.vue";
 
 
