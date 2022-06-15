@@ -6,14 +6,16 @@ export const getContracts = () => {
     return request.then(response => response.data)
 }
 
-export const getPopularPlaces = () => {
+export const getPopularPlaces = (origin) => {
     getContracts()
     .then((data) => {
         let places = [];
-        
         for (let i = 0; i < data.length; i++) {
             let counter = 0;
-            for (let j = i + 1; j < data.length; j++) {
+            if(data[i].origin.name !== origin){
+                continue;
+            }
+            for (let j = 0; j < data.length; j++) {
                 if(data[i].destination.name === data[j].destination.name){
                     counter++;
                 }
@@ -23,12 +25,13 @@ export const getPopularPlaces = () => {
                 popularity: counter
             })
         }
-
-        places.sort((first, second) => {
-            return first.popularity-second.popularity;
-        });
-
-        return places.slice(places.length - 5, places.length);
+        places = places.filter((item, index, array) => 
+            index === array.findIndex((obj) => 
+                obj.place.name === item.place.name
+        ))
+        places.sort((first, second) => first.popularity-second.popularity );
+        
+        return places;
     }).catch((err) => {
         console.log(err);
     });
