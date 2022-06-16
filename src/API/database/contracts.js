@@ -7,7 +7,7 @@ export const getContracts = () => {
 }
 
 export const getPopularPlaces = (origin) => {
-    getContracts()
+   return getContracts()
     .then((data) => {
         let places = [];
         for (let i = 0; i < data.length; i++) {
@@ -29,8 +29,9 @@ export const getPopularPlaces = (origin) => {
             index === array.findIndex((obj) => 
                 obj.place.name === item.place.name
         ))
-        places.sort((first, second) => first.popularity-second.popularity );
         
+        places.sort((first, second) => first.popularity-second.popularity );
+        console.log(places)
         return places;
     }).catch((err) => {
         console.log(err);
