@@ -7,7 +7,8 @@ export const getContracts = () => {
 }
 
 export const getPopularPlaces = (origin) => {
-   return getContracts()
+
+   return getContracts() 
     .then((data) => {
         let places = [];
         for (let i = 0; i < data.length; i++) {
