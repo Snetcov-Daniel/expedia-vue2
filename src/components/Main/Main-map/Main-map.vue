@@ -31,8 +31,8 @@ export default {
 .map {
   margin: 0 auto;
   top: 0;
-  width: 71.8em;
-  height: 500px;
+  width: 93em;
+  height: 400px;
   border-radius: 0 0 20px 20px;
 }
 </style>
