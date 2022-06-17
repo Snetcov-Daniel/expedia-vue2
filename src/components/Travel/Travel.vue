@@ -1,14 +1,14 @@
 <template>
     <div class="travel tab">
         <ul class="tab__links">
-            <li v-for="(item, index) in tabLinks" :key="index" class="tab__link" @click="tabContentChange($event, index)"> {{ item }} </li>
+            <li v-for="(item, index) in tabLinks" :key="index" class="tab__link" @click="tabLinksChange($event, index)"> {{ item }} </li>
         </ul>
         <div class="tab__content">
-            <tab-stays/>
-            <tab-flight/>
-            <tab-cars/>
-            <tab-packages/>
-            <tab-things/>
+            <tab-stays v-if="tab === 0"/>
+            <tab-flight v-if="tab == 1"/>
+            <tab-cars v-if="tab === 2"/>
+            <tab-packages v-if="tab === 3"/>
+            <tab-things v-if="tab === 4"/>
         </div>
     </div>
 </template>
@@ -28,33 +28,28 @@ export default {
         tabFlight: TabFlight,
         tabCars: TabCars,
         tabPackages: TabPackages,
-        tabThings: TabThings
+        tabThings: TabThings,
     },
     data() {
         return {
-            tabLinks: ['Stays', 'Flight', 'Cars', 'Packages', 'Things to do']
+            tabLinks: ['Stays', 'Flight', 'Cars', 'Packages', 'Things to do'],
+            tab: 1
         };
     },
 
     mounted() {
         const tabs_links = document.querySelectorAll('.tab__link');
-        const tabs_content = document.querySelectorAll('.tab__content-item');
-        tabs_content[1].classList.add('active')
-        tabs_links[1].classList.add('active');
+        tabs_links[this.tab].classList.add('active');
     },
 
     methods: {
-        tabContentChange(e, index) {
+        tabLinksChange(e, index) {
+            this.tab = index;
             const tabs_links = document.querySelectorAll('.tab__link');
-            const tabs_content = document.querySelectorAll('.tab__content-item');
             tabs_links.forEach(tab => {
                 tab.classList.remove('active');
             });
             e.target.classList.add('active');
-            tabs_content.forEach(tab => {
-                tab.classList.remove('active');
-            });
-            tabs_content[index].classList.add('active')
         }
     },
 };
@@ -74,6 +69,7 @@ export default {
         padding: 0;
         border-bottom: 1px solid #888AA2;
         margin-bottom: 30px;
+        user-select: none;
     }
     .tab__links li {
         display: inline-block;
@@ -89,10 +85,7 @@ export default {
         border-bottom: 3px solid #1F4AA8;
     }
     .tab__content-item {
-        display: none;
-        padding: 0 25px;
-    }
-    .tab__content-item.active {
         display: block;
+        padding: 0 25px;
     }
 </style>

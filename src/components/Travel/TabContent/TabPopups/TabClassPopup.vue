@@ -1,6 +1,6 @@
 <template>
     <div class="tab-item__select-class class">
-        <div class="class__info" @click="showPopup">
+        <div class="class__info" @click="showPopup($event)">
             {{ currentClass }}
             <img src="@/img/arrow-down.png" alt="">
         </div>
@@ -26,10 +26,13 @@ export default {
     },
 
     methods: {
-        showPopup() {
-            const popup = document.querySelector('.class-popup');
-            popup.classList.toggle('active');
-            popup.style.bottom = -popup.offsetHeight;
+        showPopup(event) {
+            const popup = document.querySelectorAll('.class-popup');
+            popup.forEach(item => {
+                if (item.parentElement === event.target.parentElement) {
+                    item.classList.toggle('active');
+                }
+            })
         }, 
         changeClass(event) {
             let val = event.target.textContent;
@@ -64,10 +67,10 @@ export default {
     transform: translateY(-50%);
 }
 .class-popup {
-    display: block;
-    visibility: hidden;
+    display: none;
     position: absolute;
     right: 0;
+    bottom: 0;
     width: 200px;
     text-align: left;
     color: #000;
@@ -80,7 +83,8 @@ export default {
     user-select: none;
 }
 .class-popup.active {
-    visibility: visible;
+    display: block;
+    transform: translateY(100%);
     user-select: all;
 }
 .class-popup__item {
