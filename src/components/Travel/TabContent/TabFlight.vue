@@ -31,7 +31,7 @@
 <script>
 import TabConditionsPopup from "./TabPopups/TabConditionsPopup";
 import TabClassPopup from "./TabPopups/TabClassPopup";
-import Autocomplete from './TabPopups/TabAutocompleteInput.vue';
+import Autocomplete from './TabPopups/TabAutocomplete.vue';
 import { getContracts } from "../../../API/database/contracts";
 
 export default {
