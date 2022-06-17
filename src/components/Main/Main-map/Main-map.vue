@@ -1,5 +1,8 @@
 <template>
+  <div>
   <div id="map" class="map"></div>
+  <button @click="dataReceived()" >Submit</button>
+  </div>
 </template>
 
 <script>
@@ -10,7 +13,10 @@ export default {
   name: "Main-map",
   data() {
     return {
+      gotData: localStorage.getItem('inputValue'),
     };
+  },
+  created() {
   },
   mounted() {
     // eslint-disable-next-line no-undef
@@ -23,6 +29,14 @@ export default {
         center: [ 28.85, 47.0],
         zoom: 12,
     });
+  },
+  destroyed() {
+    
+  },
+  methods: {
+    dataReceived() {
+      console.log(this.gotData)
+    },
   },
 };
 </script>
