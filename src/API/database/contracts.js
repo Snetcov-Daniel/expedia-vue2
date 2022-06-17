@@ -31,7 +31,7 @@ export const getPopularPlaces = (origin) => {
         ))
         
         places.sort((first, second) => first.popularity-second.popularity );
-        console.log(places)
+        // console.log(places) 
         return places;
     }).catch((err) => {
         console.log(err);

@@ -24,7 +24,6 @@
     <button type="submit" @submit.prevent class="tab-item__button">
       Search
     </button>
-    <!-- <div class="suggestion" v-for="(item,i) in searchTowns" :key="i" >{{ item.name }}</div> -->
   </form>
 </template>
 
@@ -45,8 +44,8 @@ export default {
     return {
       list: [],
       filteredData: [],
-      search: '',
-      field: 'name'
+      field: 'name',
+      dataToReturn: null
     };
   },
   created() {
@@ -73,7 +72,6 @@ export default {
         console.log(err);
       });
 
-  this.search = this.value || '';
   },
   mounted() {
   },
