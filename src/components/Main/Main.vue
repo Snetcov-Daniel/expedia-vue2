@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <main-map></main-map>
+    <main-map :inputValue="this.inputValue" ></main-map>
     <main-gallery></main-gallery>
   </div>
 </template>
@@ -15,13 +15,16 @@ export default {
     mainMap: mainMap,
     mainGallery: MainGallery,
   },
+  props: {
+    inputValue: Promise,
+  },
   data() {
     return {};
   },
 
   mounted() {},
 
-  methods: {},
+  methods: { },
 };
 </script>
 

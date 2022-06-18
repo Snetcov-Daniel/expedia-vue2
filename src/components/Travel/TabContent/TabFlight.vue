@@ -6,7 +6,8 @@
     </div>
     <div class="tab-item__inputs">
       <div class="tab-item__inputs-places place-inputs">
-        <autocomplete-input
+        <autocomplete-input 
+        @name="getInput"
         :data="list"
         :field="field"
         ></autocomplete-input>
@@ -30,7 +31,7 @@
 <script>
 import TabConditionsPopup from "./TabPopups/TabConditionsPopup";
 import TabClassPopup from "./TabPopups/TabClassPopup";
-import Autocomplete from './TabPopups/TabAutocompleteInput.vue';
+import Autocomplete from './TabPopups/TabAutocomplete.vue';
 import { getContracts } from "../../../API/database/contracts";
 
 export default {
@@ -78,6 +79,10 @@ export default {
   computed: { 
   },
   methods: {
+    getInput(value) {
+      this.$emit('name', value)
+      console.log(value)
+    }
   },
 };
 </script>
