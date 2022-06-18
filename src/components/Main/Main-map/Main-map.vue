@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <div id="map" class="map"></div>
     <div class="fakeMisterio" v-on:click="getInput()" ></div>
   </div>
