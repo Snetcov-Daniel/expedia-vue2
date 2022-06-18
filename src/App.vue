@@ -1,8 +1,8 @@
 <template>
     <div class="app">
         <headerMain />
-        <app-travel @name="getInput"/>
-        <appPageMain :inputValue="this.inputValue" />
+        <app-travel @name="getInput" v-if="this.getLogValue(this.logState)"/>
+        <appPageMain :inputValue="this.inputValue" v-if="this.getLogValue(this.logState)"/>
         <app-footer/>
         <app-login/>
         <app-register/>
@@ -31,13 +31,21 @@ export default {
     },
     data() {
         return {
-            inputValue: null
+            inputValue: null,
+            logState : localStorage.getItem("loggedState")
         }
     },
     mounted() {
 
      },
      methods: {
+         getLogValue(element){
+             if(element === "true"){
+                 return true
+             }else if(element === "false"){
+                 return false
+             }else return false
+         },
         getInput(value) {
             this.inputValue = value
             console.log(this.inputValue)
@@ -60,7 +68,4 @@ export default {
         background-color: #222831;
     }
 
-    .popup {
-        display: none;
-    }
 </style>
