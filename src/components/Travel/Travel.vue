@@ -5,7 +5,7 @@
         </ul>
         <div class="tab__content">
             <tab-stays/>
-            <tab-flight/>
+            <tab-flight @name="getInput"/>
             <tab-cars/>
             <tab-packages/>
             <tab-things/>
@@ -55,6 +55,10 @@ export default {
                 tab.classList.remove('active');
             });
             tabs_content[index].classList.add('active')
+        },
+        getInput(value) {
+            this.$emit('name', value)
+            console.log(value)
         }
     },
 };

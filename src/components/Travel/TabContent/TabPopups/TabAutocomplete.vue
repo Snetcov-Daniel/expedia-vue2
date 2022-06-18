@@ -3,7 +3,7 @@
     <input
       class="place-input tab-input"
       type="text"
-      @keydown.tab.prevent="complete()"
+      @keydown.enter.prevent="complete()"
       @keyup="onInputChange"
       @keydown="onSelectData"
       v-model="input"
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-// import { getPopularPlaces } from '../../../../API/database/contracts'
+import { getPopularPlaces } from '../../../../API/database/contracts'
 export default {
   name: "auto-complete",
   props: {
@@ -53,6 +53,7 @@ export default {
     complete(index) {
       this.input = this.filteredData[index][this.field]; 
       this.filteredData = [];
+      this.$emit('name', getPopularPlaces(`${this.input}`))
     },
     onInputChange(event) {
       const isEnterKey = event.keyCode === this.enterKeyCode;

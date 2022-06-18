@@ -1,8 +1,8 @@
 <template>
     <div class="app">
         <headerMain />
-        <app-travel/>
-        <appPageMain />
+        <app-travel @name="getInput"/>
+        <appPageMain :inputValue="this.inputValue" />
         <app-footer/>
         <app-login/>
         <app-register/>
@@ -29,7 +29,21 @@ export default {
         appPageMain: PageMain,
       headerMain: headerMain
     },
-    mounted() { }
+    data() {
+        return {
+            inputValue: null
+        }
+    },
+    mounted() {
+
+     },
+     methods: {
+        getInput(value) {
+            this.inputValue = value
+            console.log(this.inputValue)
+            return value
+        }
+     },
 }
 </script>
 

@@ -6,7 +6,8 @@
     </div>
     <div class="tab-item__inputs">
       <div class="tab-item__inputs-places place-inputs">
-        <autocomplete-input
+        <autocomplete-input 
+        @name="getInput"
         :data="list"
         :field="field"
         ></autocomplete-input>
@@ -80,6 +81,10 @@ export default {
   computed: { 
   },
   methods: {
+    getInput(value) {
+      this.$emit('name', value)
+      console.log(value)
+    }
   },
 };
 </script>
