@@ -66,6 +66,10 @@ export default {
 
     .app {
         background-color: #222831;
+        min-height: 1500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
 </style>
