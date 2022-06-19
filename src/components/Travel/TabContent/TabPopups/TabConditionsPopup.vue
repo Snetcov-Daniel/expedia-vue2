@@ -1,6 +1,6 @@
 <template>
     <div class="tab-item__select-conditions conditions">
-        <div class="conditions__info" @click="showPopup">
+        <div class="conditions__info" @click="showPopup($event)">
             {{ roomsCounter }} rooms, {{ peopleCounter }} travelers
             <img src="@/img/arrow-down.png" alt="">
         </div>
@@ -11,20 +11,20 @@
                     <div class="conditions-item__adult">
                         Adults
                         <div class="conditions-item__counter people-counter">
-                            <button class="people-counter__minus people-counter__btn not-active"
+                            <button type="button" class="people-counter__minus people-counter__btn not-active"
                                 @click="decreasePeople($event, 0)">-</button>
                             <span class="people-counter__value">0</span>
-                            <button class="people-counter__plus people-counter__btn"
+                            <button type="button" class="people-counter__plus people-counter__btn"
                                 @click="increasePeople($event, 0, 12)">+</button>
                         </div>
                     </div>
                     <div class="conditions-item__child">
                         Children
                         <div class="conditions-item__counter people-counter">
-                            <button class="people-counter__minus minus-child people-counter__btn not-active"
+                            <button type="button" class="people-counter__minus minus-child people-counter__btn not-active"
                                 @click="decreasePeople($event, 1); removeChild($event)">-</button>
                             <span class="people-counter__value">0</span>
-                            <button class="people-counter__plus plus-child people-counter__btn"
+                            <button type="button" class="people-counter__plus plus-child people-counter__btn"
                                 @click="increasePeople($event, 1, 6); addChild($event)">+</button>
                         </div>
                     </div>
@@ -68,10 +68,13 @@ export default {
     mounted() {
     },
     methods: {
-        showPopup() {
-            const popup = document.querySelector('.conditions-popup');
-            popup.classList.toggle('active');
-            popup.style.bottom = -popup.offsetHeight;
+        showPopup(event) {
+            const popup = document.querySelectorAll('.conditions-popup');
+            popup.forEach(item => {
+                if (item.parentElement === event.target.parentElement) {
+                    item.classList.toggle('active');
+                }
+            })
         },
         increasePeople(event, index, maxPeople) {
             const peopleNumber = document.querySelectorAll('.people-counter__value');
@@ -87,6 +90,7 @@ export default {
                 return;
             }
             val++;
+            this.peopleCounter++;
             peopleNumber[index].textContent = val;
         },
         decreasePeople(event, index) {
@@ -103,6 +107,7 @@ export default {
                 return;
             }
             val--;
+            this.peopleCounter--;
             peopleNumber[index].textContent = val;
         },
         // toggleChild(event) {
@@ -141,6 +146,7 @@ export default {
 <style scoped>
 
 
+
 .tab-item__select-conditions {
     position: relative;
     padding-right: 30px;
@@ -159,9 +165,10 @@ export default {
     transform: translateY(-50%);
 }
 .conditions-popup {
-    visibility: hidden;
+    display: none;
     position: absolute;
     right: 0;
+    bottom: 0;
     width: 400px;
     text-align: left;
     color: #000;
@@ -173,8 +180,8 @@ export default {
     user-select: none;
 }
 .conditions-popup.active {
-    visibility: visible;
-    user-select: all;
+    display: block;
+    transform: translateY(100%);
 }
 .conditions-item {
     display: block;
