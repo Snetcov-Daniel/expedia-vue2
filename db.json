@@ -16020,5 +16020,57 @@
       },
       "id": 1068
     }
+  ],
+  "users": [
+    {
+      "login": "asd",
+      "password": "asd",
+      "id": 1
+    },
+    {
+      "login": "user",
+      "password": "password",
+      "id": 2
+    },
+    {
+      "login": "log",
+      "password": "pas",
+      "id": 3
+    },
+    {
+      "login": "log",
+      "password": "pas",
+      "id": 4
+    },
+    {
+      "login": "VladimirIarovoi",
+      "password": "123123",
+      "id": 5
+    },
+    {
+      "login": "VladimirIarovoi",
+      "password": "123123",
+      "id": 6
+    },
+    {
+      "login": "VladimirIarovoi",
+      "password": "123123",
+      "id": 7
+    },
+    {
+      "login": "",
+      "password": "",
+      "id": 8
+    },
+    {
+      "login": "asd",
+      "password": "123",
+      "id": 9
+    },
+    {
+      "login": "aca",
+      "password": "123",
+      "id": 10
+    }
   ]
 }

@@ -2,7 +2,8 @@
   <form action="#" class="tab__content-item tab-item">
     <div class="tab-item__select">
       <div class="tab-item__select-tabs select-tabs">
-        <div class="select-tab" v-for="(tab, index) in tabs" :key="index" @click="changeTab($event, index)">{{ tab }}</div>
+        <div class="select-tab" v-for="(tab, index) in tabs" :key="index" @click="changeTab($event, index)">{{ tab }}
+        </div>
       </div>
       <div class="tab-item__select-popups">
         <tab-conditions />
@@ -11,7 +12,7 @@
     </div>
     <div class="tab-item__inputs" v-if="tab === 0">
       <div class="tab-item__inputs-places place-inputs">
-        <input type="text" class="place-input place-from tab-input" placeholder="from">
+        <autocomplete-input @name="getInput" :data="list" :field="field"></autocomplete-input>
         <input type="text" class="place-input place-to tab-input" placeholder="to" />
       </div>
       <div class="tab-item__inputs-date date-inputs">
@@ -51,13 +52,13 @@
     <button type="submit" @submit.prevent class="tab-item__button">
       Search
     </button>
-    <!-- <div class="suggestion" v-for="(item,i) in searchTowns" :key="i" >{{ item.name }}</div> -->
   </form>
 </template>
 
 <script>
 import TabConditionsPopup from "./TabPopups/TabConditionsPopup";
 import TabClassPopup from "./TabPopups/TabClassPopup";
+import Autocomplete from './TabPopups/TabAutocomplete.vue';
 import { getContracts } from "../../../API/database/contracts";
 
 export default {
@@ -65,14 +66,15 @@ export default {
   components: {
     tabConditions: TabConditionsPopup,
     tabClass: TabClassPopup,
-    // autocompleteInput: Autocomplete,
+    autocompleteInput: Autocomplete,
   },
   data() {
     return {
       list: [],
       filteredData: [],
-      search: '',
       field: 'name',
+      dataToReturn: null,
+      search: '',
       tabs: ['Roundtrip', 'One-way', 'Multy-city'],
       tab: 0
     };
@@ -117,6 +119,10 @@ export default {
       })
       event.target.classList.add('active');
       this.tab = index;
+    },
+    getInput(value) {
+      this.$emit('name', value)
+      console.log(value)
     }
   },
 };

@@ -17,7 +17,11 @@ export default {
   comments: {
     headerOffer,
     headerNavbar
-  }
+  },
+    data(){
+      return{
+      }
+    }
 }
 </script>
 

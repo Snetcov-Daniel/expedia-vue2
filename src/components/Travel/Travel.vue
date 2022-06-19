@@ -5,7 +5,7 @@
         </ul>
         <div class="tab__content">
             <tab-stays v-if="tab === 0"/>
-            <tab-flight v-if="tab == 1"/>
+            <tab-flight @name="getInput" v-if="tab === 1"/>
             <tab-cars v-if="tab === 2"/>
             <tab-packages v-if="tab === 3"/>
             <tab-things v-if="tab === 4"/>
@@ -50,6 +50,10 @@ export default {
                 tab.classList.remove('active');
             });
             e.target.classList.add('active');
+        },
+        getInput(value) {
+            this.$emit('name', value)
+            console.log(value)
         }
     },
 };

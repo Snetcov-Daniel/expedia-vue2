@@ -1,8 +1,6 @@
 <template>
   <div class = "header-navbar">
-
     <img src="../../img/Expedia-logo.png" alt="Logo">
-
     <div class="h__menu">
       <a href="#" id = "hm__home">Home</a>
       <a href="#" id = "hm__trips">Trips</a>
@@ -12,29 +10,81 @@
     </div>
 
     <div class="h__enter">
-      <div class="he__register">
-        <a href="#" class = "he__link">Register</a>
+      <div v-if="!(this.getLogValue(this.logState))" class="he__register">
+        <a  href="#" class = "he__link" v-on:click="openPopReg">Register</a>
       </div>
-      <div class="he__login">
+      <div v-if="!(this.getLogValue(this.logState))" class="he__login" v-on:click="openPopLog" >
         <a href="#" class = "he__link">Sign In</a>
       </div>
+        <div v-if="(this.getLogValue(this.logState))" class="he__login" v-on:click="exit">
+        <a href="#" class = "he__link">Exit</a>
+      </div>
+
+
     </div>
+
+    <reg-in ref="RegistrationPopup"/>
+    <log-in ref="LogInPopup"/>
 
 
   </div>
 </template>
 
+
+
+
 <script>
+import Authorize from "@/components/Authorization/Authorize";
+import Register from "@/components/Authorization/Register";
+
 export default {
-  name: "Header-Navbar"
+  name: "Header-Navbar",
+
+  data(){
+    return{
+        logState:localStorage.getItem("loggedState")
+
+    }
+  },
+
+  components: {
+  logIn: Authorize,
+    regIn: Register
+  },
+
+  methods:{
+
+      exit(){
+        localStorage.setItem("loggedState", false)
+          window.location.reload();
+      },
+
+      getLogValue(element){
+          if(element === "true"){
+              return true
+          }else if(element === "false"){
+              return false
+          }else return false
+      },
+
+    openPopReg(){
+      this.$refs.RegistrationPopup.openPop()
+    },
+    openPopLog(){
+      this.$refs.LogInPopup.openPop()
+    }
+  }
+
 }
 </script>
 
 <style scoped>
+
 .h__enter{
   display: flex;
   width: 21%;
   justify-content: space-between;
+    flex-direction: row-reverse;
   align-items: center;
 }
 
