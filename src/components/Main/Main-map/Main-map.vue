@@ -102,8 +102,7 @@ export default {
   height: 80px;
   position: absolute;
   background-color: transparent;
-  left: 50%;
-  right: 50%;
+  left: 37%;
   top: 45em;
   cursor: pointer;
 }
