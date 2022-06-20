@@ -42,14 +42,14 @@ export default {
   },
   methods: {
     getInput() {
-      
+
       this.inputValue.then((data) => {
-        
-        let res = data.map((item) => { 
+
+        let res = data.map((item) => {
         return {
         lat: item.place.lat,
         lng: item.place.lng
-       } 
+       }
       })
       this.topFive = res
 
@@ -63,26 +63,26 @@ export default {
 
       new Marker()
       .setLngLat([this.topFive[0].lng, this.topFive[0].lat])
-      .addTo(map);  
+      .addTo(map);
 
       new Marker()
       .setLngLat([this.topFive[2].lng, this.topFive[2].lat])
-      .addTo(map);  
+      .addTo(map);
 
       new Marker()
       .setLngLat([this.topFive[3].lng, this.topFive[3].lat])
-      .addTo(map);  
+      .addTo(map);
 
       new Marker()
       .setLngLat([this.topFive[4].lng, this.topFive[4].lat])
-      .addTo(map);  
+      .addTo(map);
 
       new Marker()
       .setLngLat([this.topFive[5].lng, this.topFive[5].lat])
-      .addTo(map);  
+      .addTo(map);
 
       })
-      
+
     }
   },
 };
